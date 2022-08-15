@@ -93,7 +93,7 @@ async def process_phone(message: types.Message, state: FSMContext):
     await state.update_data(phone=message.text)
     async with state.proxy() as data:
         leed_data['phone'] = data['phone']
-        print(data)
+        
 
     await bot.send_message(message.chat.id, text="👤 *Исмингизни ҳам киритинг:*", parse_mode=ParseMode.MARKDOWN)
     
@@ -112,7 +112,7 @@ async def process_gender(message: types.Message, state: FSMContext):
         leed_data['name'] = message.text
         leed_data['username'] = message.from_user.username
 
-        print(data)
+        
         await bot.send_message(
             message.chat.id, 
             text=f"""🎉 Табриклаймиз *{data['name']}* сиз *БЕПУЛ* консултацияга эга бўлдингиз. Тез орада сиз билан малакали мутахасиссимиз боғланади!
@@ -128,13 +128,6 @@ Raqam: {leed_data['phone']}
 Account: @{leed_data['username']}""")
     await state.finish()
 
-
-
-@dp.message_handler()
-async def echo(message: types.Message):
-    # old style:
-    # await bot.send_message(message.chat.id, message.text)
-    print(message)
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
