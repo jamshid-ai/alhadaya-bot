@@ -18,7 +18,6 @@ from aiogram.utils import executor
 logging.basicConfig(level=logging.INFO)
 API_TOKEN = os.getenv('API_TOKEN')
 CHANNEL_ID=os.getenv('CHANNEL_ID')
-print(CHANNEL_ID)
 bot = Bot(token=API_TOKEN)
 
 # For example use simple MemoryStorage for Dispatcher.
