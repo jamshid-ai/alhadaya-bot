@@ -67,7 +67,7 @@ async def process_name(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['problem'] = message.text
         leed_data['problem'] = message.text
-        print(data)
+
 
     markup = types.ReplyKeyboardRemove()
     await Form.next()
